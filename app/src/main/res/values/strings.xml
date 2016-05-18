@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Acreditacion UQ</string>
+
+    <string name="cargando_preguntas">Cargando Preguntas</string>
+    <string name="espere">Espere por favor</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
