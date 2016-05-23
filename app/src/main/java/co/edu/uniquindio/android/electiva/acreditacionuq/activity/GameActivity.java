@@ -20,6 +20,8 @@ import co.edu.uniquindio.android.electiva.acreditacionuq.vo.Usuario;
 
 public class GameActivity extends AppCompatActivity implements QuestionFragment.OnPreguntaRespondidaListener {
 
+    public final static String MENSAJE = "Mensaje";
+
     private ViewPager viewPager;
     private ArrayList<Question> preguntas;
     private int posicion;
@@ -44,18 +46,24 @@ public class GameActivity extends AppCompatActivity implements QuestionFragment.
         if (posicion != preguntas.size()-1) {
             posicion = posicion + 1;
             viewPager.setCurrentItem(posicion);
+
+            QuestionFragment page = (QuestionFragment) getSupportFragmentManager().findFragmentByTag("android:switcher:" + R.id.viewpager + ":" + viewPager.getCurrentItem());
+            page.countDownTimer.start();
+
         } else {
             Intent intent = new Intent(GameActivity.this, EndActivity.class);
             intent.putExtra(WelcomeFragment.USUARIO, usuario);
+            intent.putExtra(MENSAJE, getBaseContext().getResources().getString(R.string.juego_ganado));
             startActivity(intent);
         }
 
     }
 
     @Override
-    public void onJuegoTerminado() {
+    public void onJuegoTerminado(String mensaje) {
         Intent intent = new Intent(GameActivity.this, EndActivity.class);
         intent.putExtra(WelcomeFragment.USUARIO, usuario);
+        intent.putExtra(MENSAJE, mensaje);
         startActivity(intent);
     }
 
@@ -125,6 +133,10 @@ public class GameActivity extends AppCompatActivity implements QuestionFragment.
                 viewPager = (ViewPager) findViewById(R.id.viewpager);
                 viewPager.setAdapter(adapter);
                 viewPager.beginFakeDrag();
+
+                QuestionFragment page = (QuestionFragment) getSupportFragmentManager().findFragmentByTag("android:switcher:" + R.id.viewpager + ":" + viewPager.getCurrentItem());
+                page.countDownTimer.start();
+
             }
 
             progress.dismiss();

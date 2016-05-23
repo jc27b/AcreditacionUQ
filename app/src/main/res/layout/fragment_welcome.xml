@@ -18,7 +18,7 @@
             android:text="@string/cambiar_usuario"
             android:textSize="@dimen/btn_cambiar_usuario"
             android:layout_gravity="right"
-            android:background="@drawable/mybutton"
+            android:background="@drawable/button_green"
             android:layout_marginBottom="@dimen/margin_text"/>
 
         <TextView
@@ -38,7 +38,7 @@
             android:text="@string/jugar"
             android:textSize="@dimen/btn_jugar"
             android:layout_gravity="center_horizontal"
-            android:background="@drawable/mybutton"/>
+            android:background="@drawable/button_green"/>
 
     </LinearLayout>
 

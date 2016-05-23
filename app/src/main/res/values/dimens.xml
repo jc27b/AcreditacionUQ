@@ -17,4 +17,9 @@
     <dimen name="fragment_padding">20dp</dimen>
     <dimen name="margin_text">30dp</dimen>
 
+    <dimen name="countdown_timer">30dp</dimen>
+    <dimen name="btn_aceptar">20dp</dimen>
+    <dimen name="mensaje_final">30dp</dimen>
+    <dimen name="puntuacion">40dp</dimen>
+
 </resources>

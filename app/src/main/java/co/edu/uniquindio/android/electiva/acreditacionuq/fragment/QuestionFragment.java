@@ -4,6 +4,7 @@ package co.edu.uniquindio.android.electiva.acreditacionuq.fragment;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,11 +24,14 @@ import co.edu.uniquindio.android.electiva.acreditacionuq.vo.Question;
  */
 public class QuestionFragment extends Fragment implements View.OnClickListener {
 
+    public CountDownTimer countDownTimer;
+    private TextView countdownTimer;
     private TextView txtEnunciado;
     private Button btnOpcion1;
     private Button btnOpcion2;
     private Button btnOpcion3;
     private Button btnOpcion4;
+    private Button btnAceptar;
     private static final String PREGUNTA = "pregunta";
     private Question pregunta;
     private OnPreguntaRespondidaListener listener;
@@ -94,6 +98,7 @@ public class QuestionFragment extends Fragment implements View.OnClickListener {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View vista = inflater.inflate(R.layout.fragment_question, container, false);
+
         txtEnunciado = (TextView) vista.findViewById(R.id.text_enunciado);
         txtEnunciado.setText(pregunta.getEnunciado());
         btnOpcion1 = (Button) vista.findViewById(R.id.text_opcion_1);
@@ -108,26 +113,91 @@ public class QuestionFragment extends Fragment implements View.OnClickListener {
         btnOpcion4 = (Button) vista.findViewById(R.id.text_opcion_4);
         btnOpcion4.setText(pregunta.getOpcion4());
         btnOpcion4.setOnClickListener(this);
+
+        btnAceptar = (Button) vista.findViewById(R.id.btn_siguiente);
+        btnAceptar.setVisibility(View.GONE);
+
+        countdownTimer = (TextView) vista.findViewById(R.id.countdown_timer);
+        countDownTimer = new CountDownTimer(31000, 1000) {
+
+            public void onTick(long millisUntilFinished) {
+                countdownTimer.setText(getContext().getResources().getString(R.string.tiempo) + millisUntilFinished / 1000);
+            }
+
+            public void onFinish() {
+                countdownTimer.setText(getContext().getResources().getString(R.string.tiempo_acabado));
+                mostrarResultado();
+                btnAceptar.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        listener.onJuegoTerminado(getContext().getResources().getString(R.string.tiempo_acabado));
+                    }
+                });
+            }
+        };
+
         return vista;
     }
 
     @Override
     public void onClick(View v) {
         int presionada = 0;
+        Button btnPresionado = null;
+
         if (v.getId() == btnOpcion1.getId()) {
             presionada = 1;
+            btnPresionado = btnOpcion1;
         } else if (v.getId() == btnOpcion2.getId()) {
             presionada = 2;
+            btnPresionado = btnOpcion2;
         } else if (v.getId() == btnOpcion3.getId()) {
             presionada = 3;
+            btnPresionado = btnOpcion3;
         } else if (v.getId() == btnOpcion4.getId()) {
             presionada = 4;
+            btnPresionado = btnOpcion4;
         }
 
+        countDownTimer.cancel();
+        mostrarResultado();
+
         if (presionada == pregunta.getCorrecta()) {
-            listener.onPreguntaRespondida();
+            btnAceptar.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    listener.onPreguntaRespondida();
+                }
+            });
         } else {
-            listener.onJuegoTerminado();
+            btnPresionado.setBackgroundResource(R.drawable.button_red);
+            btnAceptar.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    listener.onJuegoTerminado(getContext().getResources().getString(R.string.mala_respuesta));
+                }
+            });
+        }
+    }
+
+    private void mostrarResultado() {
+        btnOpcion1.setEnabled(false);
+        btnOpcion2.setEnabled(false);
+        btnOpcion3.setEnabled(false);
+        btnOpcion4.setEnabled(false);
+        btnAceptar.setVisibility(View.VISIBLE);
+        switch (pregunta.getCorrecta()) {
+            case 1:
+                btnOpcion1.setBackgroundResource(R.drawable.button_green);
+                break;
+            case 2:
+                btnOpcion2.setBackgroundResource(R.drawable.button_green);
+                break;
+            case 3:
+                btnOpcion3.setBackgroundResource(R.drawable.button_green);
+                break;
+            case 4:
+                btnOpcion4.setBackgroundResource(R.drawable.button_green);
+                break;
         }
     }
 
@@ -137,7 +207,7 @@ public class QuestionFragment extends Fragment implements View.OnClickListener {
      */
     public interface OnPreguntaRespondidaListener {
         void onPreguntaRespondida();
-        void onJuegoTerminado();
+        void onJuegoTerminado(String mensaje);
     }
 
     /**
