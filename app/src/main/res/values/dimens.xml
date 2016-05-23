@@ -3,10 +3,18 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="text_enunciado">20dp</dimen>
-    <dimen name="text_opcion1">20dp</dimen>
-    <dimen name="text_opcion2">20dp</dimen>
-    <dimen name="text_opcion3">20dp</dimen>
-    <dimen name="text_opcion4">20dp</dimen>
+    <dimen name="text_opcion">20dp</dimen>
     <dimen name="text_ayuda">20dp</dimen>
     <dimen name="margin_opciones">30dp</dimen>
+
+    <dimen name="text_new_user">30dp</dimen>
+    <dimen name="text_edit_new_user">20dp</dimen>
+    <dimen name="edit_text_new_user">200dp</dimen>
+    <dimen name="text_bienvenido">30dp</dimen>
+    <dimen name="btn_jugar">40dp</dimen>
+    <dimen name="btn_cambiar_usuario">20dp</dimen>
+    <dimen name="text_creditos">10dp</dimen>
+    <dimen name="fragment_padding">20dp</dimen>
+    <dimen name="margin_text">30dp</dimen>
+
 </resources>

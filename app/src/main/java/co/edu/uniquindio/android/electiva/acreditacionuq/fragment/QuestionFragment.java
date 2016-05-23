@@ -126,6 +126,8 @@ public class QuestionFragment extends Fragment implements View.OnClickListener {
 
         if (presionada == pregunta.getCorrecta()) {
             listener.onPreguntaRespondida();
+        } else {
+            listener.onJuegoTerminado();
         }
     }
 
@@ -135,6 +137,7 @@ public class QuestionFragment extends Fragment implements View.OnClickListener {
      */
     public interface OnPreguntaRespondidaListener {
         void onPreguntaRespondida();
+        void onJuegoTerminado();
     }
 
     /**

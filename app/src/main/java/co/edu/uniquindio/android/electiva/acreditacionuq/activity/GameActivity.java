@@ -2,6 +2,7 @@ package co.edu.uniquindio.android.electiva.acreditacionuq.activity;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
@@ -11,22 +12,28 @@ import java.util.ArrayList;
 
 import co.edu.uniquindio.android.electiva.acreditacionuq.R;
 import co.edu.uniquindio.android.electiva.acreditacionuq.fragment.QuestionFragment;
+import co.edu.uniquindio.android.electiva.acreditacionuq.fragment.WelcomeFragment;
 import co.edu.uniquindio.android.electiva.acreditacionuq.util.AdaptadorDePagerFragment;
 import co.edu.uniquindio.android.electiva.acreditacionuq.util.Utilidades;
 import co.edu.uniquindio.android.electiva.acreditacionuq.vo.Question;
+import co.edu.uniquindio.android.electiva.acreditacionuq.vo.Usuario;
 
-public class MainActivity extends AppCompatActivity implements QuestionFragment.OnPreguntaRespondidaListener {
+public class GameActivity extends AppCompatActivity implements QuestionFragment.OnPreguntaRespondidaListener {
 
     private ViewPager viewPager;
     private ArrayList<Question> preguntas;
     private int posicion;
+    private Usuario usuario;
+    public static GameActivity gameActivity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_game);
 
         posicion = 0;
+        usuario = (Usuario) getIntent().getExtras().getParcelable(WelcomeFragment.USUARIO);
+        gameActivity = this;
 
         HiloSecundario hiloSecundario = new HiloSecundario(this);
         hiloSecundario.execute(Utilidades.LISTAR_PREGUNTAS);
@@ -36,11 +43,20 @@ public class MainActivity extends AppCompatActivity implements QuestionFragment.
     public void onPreguntaRespondida() {
         if (posicion != preguntas.size()-1) {
             posicion = posicion + 1;
+            viewPager.setCurrentItem(posicion);
         } else {
-            posicion = 0;
-            Utilidades.mostrarMensaje("Felicidades, ha ganado el juego", getBaseContext());
+            Intent intent = new Intent(GameActivity.this, EndActivity.class);
+            intent.putExtra(WelcomeFragment.USUARIO, usuario);
+            startActivity(intent);
         }
-        viewPager.setCurrentItem(posicion);
+
+    }
+
+    @Override
+    public void onJuegoTerminado() {
+        Intent intent = new Intent(GameActivity.this, EndActivity.class);
+        intent.putExtra(WelcomeFragment.USUARIO, usuario);
+        startActivity(intent);
     }
 
     /**

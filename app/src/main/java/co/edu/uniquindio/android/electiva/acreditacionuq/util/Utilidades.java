@@ -25,6 +25,13 @@ public class Utilidades {
     public final static String URL_SERVICIO = "http://acreditacionuq-jc27b.rhcloud.com/pregunta";
     public static final int LISTAR_PREGUNTAS = 1;
 
+    public static final String NOMBRE_BD = "Juego_Acreditacion";
+    public static final String NOMBRE_TABLA_1 = "Usuario";
+    public static final String CAMPOS_TABLA_1[] = new String[]{"_ID","NOMBRE", "CORREO", "ACTUAL"};
+    public static final String NOMBRE_TABLA_2 = "Puntuacion";
+    public static final String CAMPOS_TABLA_2[] = new String[]{"_ID","USUARIO", "PUNTAJE"};
+
+
     /**
      * Se encarga de converir un String formato JSON a una Pregunta
      * @param jsonPregunta string en formato JSON
