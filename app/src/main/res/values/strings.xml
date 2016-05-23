@@ -1,3 +1,24 @@
 <resources>
     <string name="app_name">Acreditacion UQ</string>
+
+    <string name="cargando_preguntas">Cargando Preguntas</string>
+    <string name="espere">Espere por favor</string>
+
+    <string name="nombre">Nombre:</string>
+    <string name="correo">Correo:</string>
+    <string name="aceptar">Aceptar</string>
+
+    <string name="bienvenido">¡Bienvenido</string>
+    <string name="jugar">Jugar</string>
+    <string name="cambiar_usuario">Cambiar Usuario</string>
+    <string name="creditos">Juan Camilo González Idárraga\nDavid Felipe Hernández Zuleta\nJhoan Sebastián Gómez Medina</string>
+
+    <string name="tiempo">Tiempo: </string>
+    <string name="tiempo_acabado">¡Se acabó el tiempo!</string>
+    <string name="juego_ganado">¡Felicidades, has ganado con el máximo puntaje!</string>
+    <string name="mala_respuesta">¡Vaya, has respondido mal!</string>
+    <string name="puntuacion">Puntuación: </string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

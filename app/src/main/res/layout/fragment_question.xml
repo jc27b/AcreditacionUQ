@@ -1,0 +1,96 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/one_card"
+    android:orientation="vertical"
+    tools:context="co.edu.uniquindio.android.electiva.acreditacionuq.fragment.QuestionFragment">
+
+    <TextView
+        android:id="@+id/countdown_timer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tiempo"
+        android:textSize="@dimen/countdown_timer"
+        android:textColor="@android:color/holo_orange_dark"
+        android:textStyle="bold"
+        android:layout_gravity="right" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/text_enunciado"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Enunciado"
+            android:textSize="@dimen/text_enunciado"
+            android:textStyle="bold"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/margin_text"/>
+
+        <Button
+            android:id="@+id/text_opcion_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Opcion 1"
+            android:textSize="@dimen/text_opcion"
+            android:background="@drawable/button_blue"
+            android:layout_marginTop="@dimen/margin_opciones"
+            android:layout_below="@+id/text_enunciado"
+            android:layout_alignLeft="@+id/text_enunciado"
+            android:layout_alignStart="@+id/text_enunciado" />
+
+        <Button
+            android:id="@+id/text_opcion_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Opcion 2"
+            android:textSize="@dimen/text_opcion"
+            android:background="@drawable/button_blue"
+            android:layout_marginTop="@dimen/margin_opciones"
+            android:layout_below="@+id/text_opcion_1"
+            android:layout_alignLeft="@+id/text_opcion_1"
+            android:layout_alignStart="@+id/text_opcion_1" />
+
+        <Button
+            android:id="@+id/text_opcion_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Opcion 3"
+            android:textSize="@dimen/text_opcion"
+            android:background="@drawable/button_blue"
+            android:layout_marginTop="@dimen/margin_opciones"
+            android:layout_below="@+id/text_opcion_2"
+            android:layout_alignLeft="@+id/text_opcion_2"
+            android:layout_alignStart="@+id/text_opcion_2" />
+
+        <Button
+            android:id="@+id/text_opcion_4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Opcion 4"
+            android:textSize="@dimen/text_opcion"
+            android:background="@drawable/button_blue"
+            android:layout_marginTop="@dimen/margin_opciones"
+            android:layout_below="@+id/text_opcion_3"
+            android:layout_alignLeft="@+id/text_opcion_3"
+            android:layout_alignStart="@+id/text_opcion_3" />
+
+        <Button
+            android:id="@+id/btn_siguiente"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/aceptar"
+            android:textSize="@dimen/btn_aceptar"
+            android:background="@drawable/button_green"
+            android:layout_alignParentBottom="true"
+            android:layout_alignLeft="@+id/text_enunciado"
+            android:layout_alignStart="@+id/text_enunciado" />
+
+    </RelativeLayout>
+
+
+</LinearLayout>
