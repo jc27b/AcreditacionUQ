@@ -1,0 +1,16 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.herprogramacion.toolbarapp.DetailActivity">
+    <item
+        android:id="@+id/llamada"
+        android:orderInCategory="1"
+        android:title="@string/llamada"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/s0_s0"
+        android:orderInCategory="2"
+        android:title="@string/s0_s0"
+        app:showAsAction="never" />
+
+</menu>

@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@drawable/fndo"
     tools:context="co.edu.uniquindio.android.electiva.acreditacionuq.activity.EndActivity">
 
     <TextView
@@ -13,7 +14,8 @@
         android:text="@string/juego_ganado"
         android:textSize="@dimen/mensaje_final"
         android:layout_gravity="center_horizontal"
-        android:layout_marginBottom="@dimen/margin_text"/>
+        android:layout_marginBottom="@dimen/margin_text"
+        android:textColor="@color/White" />
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -21,29 +23,33 @@
         android:background="@drawable/transparent_rectangle">
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="300000"
-            android:textSize="@dimen/puntuacion"
-            android:layout_gravity="right"/>
-
-        <TextView
             android:id="@+id/text_puntaje"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="222dp"
+            android:layout_height="70dp"
             android:text="@string/puntuacion"
             android:textSize="@dimen/puntuacion"
-            android:layout_gravity="left"/>
+            android:layout_gravity="center"
+            android:textColor="@color/White" />
+
 
     </FrameLayout>
 
+    <TextView
+        android:id="@+id/text_puntuacion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="300000"
+        android:textSize="@dimen/puntuacion"
+        android:layout_gravity="center_horizontal"
+        android:textColor="@color/White" />
+
     <Button
         android:id="@+id/btn_volver"
-        android:layout_width="wrap_content"
+        android:layout_width="317dp"
         android:layout_height="wrap_content"
         android:text="@string/aceptar"
         android:textSize="@dimen/btn_aceptar"
-        android:background="@drawable/button_green"
+        android:background="@drawable/img2"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="@dimen/margin_text"/>
 

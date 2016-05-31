@@ -75,8 +75,8 @@ public class Utilidades {
         HttpGet request = new HttpGet(Utilidades.URL_SERVICIO);
         request.setHeader("content-type", "application/json");
 
-        try {
 
+        try {
             HttpResponse resp = httpClient.execute(request);
             String respStr = EntityUtils.toString(resp.getEntity());
 

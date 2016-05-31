@@ -3,23 +3,27 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="@dimen/fragment_padding"
+    android:background="@drawable/fndo"
     tools:context="co.edu.uniquindio.android.electiva.acreditacionuq.fragment.WelcomeFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="363dp"
         android:orientation="vertical"
-        android:layout_gravity="center_horizontal|top">
+        android:layout_gravity="center_horizontal|top"
+        android:weightSum="1">
+
 
         <Button
             android:id="@+id/btn_cambiar_usuario"
-            android:layout_width="wrap_content"
+            android:layout_width="134dp"
             android:layout_height="@dimen/btn_cambiar_usuario"
             android:text="@string/cambiar_usuario"
             android:textSize="@dimen/btn_cambiar_usuario"
             android:layout_gravity="right"
-            android:background="@drawable/button_green"
-            android:layout_marginBottom="@dimen/margin_text"/>
+            android:background="@drawable/button_blue"
+            android:layout_marginBottom="@dimen/margin_text"
+            android:layout_weight="0.06" />
 
         <TextView
             android:id="@+id/text_bienvenido"
@@ -33,12 +37,11 @@
 
         <Button
             android:id="@+id/btn_jugar"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/jugar"
             android:textSize="@dimen/btn_jugar"
-            android:layout_gravity="center_horizontal"
-            android:background="@drawable/button_green"/>
+            android:background="@drawable/button_blue"/>
 
     </LinearLayout>
 

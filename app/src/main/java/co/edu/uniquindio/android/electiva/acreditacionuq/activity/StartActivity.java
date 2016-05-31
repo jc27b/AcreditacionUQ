@@ -54,7 +54,6 @@ public class StartActivity extends AppCompatActivity implements NewUserFragment.
     public void onNuevoUsuario() {
         usuarios = crudsql.getUsuarios();
         Usuario usuarioActual = getUsuarioActual();
-
         WelcomeFragment welcomeFragment = WelcomeFragment.newInstance(usuarioActual);
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.start_fragment, welcomeFragment, "welcomeFragment");

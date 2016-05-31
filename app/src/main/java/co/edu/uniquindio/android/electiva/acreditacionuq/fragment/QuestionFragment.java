@@ -83,6 +83,9 @@ public class QuestionFragment extends Fragment implements View.OnClickListener {
 
         this.pregunta = getArguments().getParcelable(PREGUNTA);
 
+
+
+
     }
 
     /**
@@ -135,6 +138,13 @@ public class QuestionFragment extends Fragment implements View.OnClickListener {
                 });
             }
         };
+
+
+
+
+
+
+
 
         return vista;
     }
@@ -234,5 +244,12 @@ public class QuestionFragment extends Fragment implements View.OnClickListener {
         }
 
     }
+
+
+
+
+
+
+
 
 }

@@ -10,7 +10,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import co.edu.uniquindio.android.electiva.acreditacionuq.R;
 import co.edu.uniquindio.android.electiva.acreditacionuq.activity.GameActivity;
@@ -70,7 +69,7 @@ public class WelcomeFragment extends Fragment {
         btnCambiarUsuario.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getContext(), "Falta implementar", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getContext(), "Falta implementar", Toast.LENGTH_SHORT).show();
             }
         });
 

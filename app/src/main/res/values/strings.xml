@@ -8,7 +8,7 @@
     <string name="correo">Correo:</string>
     <string name="aceptar">Aceptar</string>
 
-    <string name="bienvenido">¡Bienvenido</string>
+    <string name="bienvenido">¡Bienvenido!</string>
     <string name="jugar">Jugar</string>
     <string name="cambiar_usuario">Cambiar Usuario</string>
     <string name="creditos">Juan Camilo González Idárraga\nDavid Felipe Hernández Zuleta\nJhoan Sebastián Gómez Medina</string>
@@ -18,6 +18,10 @@
     <string name="juego_ganado">¡Felicidades, has ganado con el máximo puntaje!</string>
     <string name="mala_respuesta">¡Vaya, has respondido mal!</string>
     <string name="puntuacion">Puntuación: </string>
+
+
+    <string name="s0_s0">50 - 50 </string>
+    <string name="llamada">llamar</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

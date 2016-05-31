@@ -12,6 +12,7 @@ import co.edu.uniquindio.android.electiva.acreditacionuq.vo.Usuario;
 
 public class EndActivity extends AppCompatActivity {
 
+    private TextView txtPuntaje;
     private TextView txtMensaje;
     private Button btnVolver;
     private Usuario usuario;
@@ -26,6 +27,9 @@ public class EndActivity extends AppCompatActivity {
 
         txtMensaje = (TextView) findViewById(R.id.text_mensaje);
         txtMensaje.setText(getIntent().getExtras().getString(GameActivity.MENSAJE));
+
+        txtPuntaje = (TextView) findViewById(R.id.text_puntuacion);
+        txtPuntaje.setText("" + getIntent().getExtras().getInt(GameActivity.PUNTAJE));
 
         btnVolver = (Button) findViewById(R.id.btn_volver);
         btnVolver.setOnClickListener(new View.OnClickListener() {
