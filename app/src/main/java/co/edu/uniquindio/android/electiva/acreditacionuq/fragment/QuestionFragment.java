@@ -80,11 +80,7 @@ public class QuestionFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-
         this.pregunta = getArguments().getParcelable(PREGUNTA);
-
-
-
 
     }
 
@@ -138,11 +134,6 @@ public class QuestionFragment extends Fragment implements View.OnClickListener {
                 });
             }
         };
-
-
-
-
-
 
 
 
@@ -208,6 +199,35 @@ public class QuestionFragment extends Fragment implements View.OnClickListener {
             case 4:
                 btnOpcion4.setBackgroundResource(R.drawable.button_green);
                 break;
+        }
+    }
+
+    public void on5050() {
+        int primera = 0;
+        int segunda = 0;
+        for (int i = 0; i < 2; i++) {
+            int random = (int) (Math.random()*5);
+            if (random != pregunta.getCorrecta() && random != primera && random >= 1) {
+                if (i == 0) {
+                    primera = random;
+                } else {
+                    segunda = random;
+                }
+            } else {
+                i--;
+            }
+        }
+        if (primera == 1 || segunda == 1) {
+            btnOpcion1.setVisibility(View.GONE);
+        }
+        if (primera == 2 || segunda == 2) {
+            btnOpcion2.setVisibility(View.GONE);
+        }
+        if (primera == 3 || segunda == 3) {
+            btnOpcion3.setVisibility(View.GONE);
+        }
+        if (primera == 4 || segunda == 4) {
+            btnOpcion4.setVisibility(View.GONE);
         }
     }
 
