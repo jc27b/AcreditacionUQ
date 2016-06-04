@@ -37,6 +37,8 @@ public class GameActivity extends AppCompatActivity implements QuestionFragment.
     private int puntaje;
     private int pregunta;
 
+    private boolean ya5050;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,6 +50,7 @@ public class GameActivity extends AppCompatActivity implements QuestionFragment.
 
         puntaje = 0;
         pregunta = 1;
+        ya5050 = false;
 
         HiloSecundario hiloSecundario = new HiloSecundario(this);
         hiloSecundario.execute(Utilidades.LISTAR_PREGUNTAS);
@@ -222,16 +225,6 @@ public class GameActivity extends AppCompatActivity implements QuestionFragment.
 
 
 
-
-
-
-
-
-
-
-
-
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu, menu);
@@ -242,16 +235,18 @@ public class GameActivity extends AppCompatActivity implements QuestionFragment.
         int id = item.getItemId();
 
         if (id == R.id.llamada) {
-
-
             Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:+3123132829"));
             startActivity(intent);
         }
         if (id == R.id.s0_s0) {
-            Toast toast2 =
-                    Toast.makeText(getApplicationContext(),
-                            "mensaje toast 2", Toast.LENGTH_SHORT);
-            toast2.show();
+            if (!ya5050)  {
+                QuestionFragment page = (QuestionFragment) getSupportFragmentManager().findFragmentByTag("android:switcher:" + R.id.viewpager + ":" + viewPager.getCurrentItem());
+                page.on5050();
+                ya5050 = true;
+            } else {
+                Toast.makeText(getBaseContext(), "Ya se ha usado el 50-50", Toast.LENGTH_SHORT).show();
+
+            }
         }
 
         return super.onOptionsItemSelected(item);
